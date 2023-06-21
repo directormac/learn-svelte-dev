@@ -1,8 +1,18 @@
 <script lang="ts">
 	import ButtonClick from './ButtonClick.svelte';
+	import DeclaredProps from './DeclaredProps.svelte';
+	import FancyButton from './FancyButton.svelte';
 	import Nested from './Nested.svelte';
+	import SpreadProps from './SpreadProps.svelte';
 	let name = 'meme';
 	let src = 'meme.jpeg';
+
+	const packageInfo = {
+		name: 'svelte',
+		speed: 'blazing',
+		version: 3,
+		website: 'https://svelte.dev'
+	};
 </script>
 
 <h1>Hello {name.toUpperCase()}</h1>
@@ -12,6 +22,12 @@
 <Nested />
 
 <ButtonClick />
+
+<FancyButton />
+
+<SpreadProps {...packageInfo} />
+
+<DeclaredProps name="svelte" valuedName="Override" />
 <br />
 <img {src} alt="a {name} appears" height="600px" width="300px" />
 
