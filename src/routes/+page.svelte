@@ -8,6 +8,20 @@
 	import Nested from './Nested.svelte';
 	import SpreadProps from './SpreadProps.svelte';
 	import AwaitBlock from './AwaitBlock.svelte';
+	import DOMEvents from './DOMEvents.svelte';
+	import ModifiedEvent from './ModifiedEvent.svelte';
+	import ComponentEvents from './ComponentEvents.svelte';
+	import Outer from './Outer.svelte';
+
+	import BigRedButton from './BigRedButton.svelte';
+	import FormInputs from './FormInputs.svelte';
+
+	// const audio = new Audio('./wow.mp3');
+	//
+	// function handleClick() {
+	// 	audio.play();
+	// }
+
 	let name = 'meme';
 	let src = 'meme.jpeg';
 
@@ -17,11 +31,19 @@
 		version: 3,
 		website: 'https://svelte.dev'
 	};
+
+	function handleMessage(event: { detail: { text: any } }) {
+		alert(event.detail.text);
+	}
 </script>
 
-<h1>Hello {name.toUpperCase()}</h1>
+<input bind:value={name} />
+
+<h1>Hello {name.toUpperCase()}!</h1>
 
 <p>This is a paragraph!</p>
+
+<FormInputs />
 
 <Nested />
 
@@ -42,6 +64,17 @@
 <br />
 
 <AwaitBlock />
+
+<!-- <DOMEvents /> -->
+
+<br />
+<ModifiedEvent />
+
+<ComponentEvents on:message={handleMessage} />
+<Outer on:message={handleMessage} />
+<br />
+
+<!-- <BigRedButton on:click={handleClick} /> -->
 
 <br />
 <img {src} alt="a {name} appears" height="600px" width="300px" />
