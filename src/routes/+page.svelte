@@ -1,9 +1,13 @@
 <script lang="ts">
 	import ButtonClick from './ButtonClick.svelte';
 	import DeclaredProps from './DeclaredProps.svelte';
+	import EachBlocks from './EachBlocks.svelte';
 	import FancyButton from './FancyButton.svelte';
+	import IfBlocks from './IfBlocks.svelte';
+	import KeyedEachBlock from './KeyedEachBlock.svelte';
 	import Nested from './Nested.svelte';
 	import SpreadProps from './SpreadProps.svelte';
+	import AwaitBlock from './AwaitBlock.svelte';
 	let name = 'meme';
 	let src = 'meme.jpeg';
 
@@ -28,6 +32,17 @@
 <SpreadProps {...packageInfo} />
 
 <DeclaredProps name="svelte" valuedName="Override" />
+
+<IfBlocks />
+
+<EachBlocks />
+
+<KeyedEachBlock />
+
+<br />
+
+<AwaitBlock />
+
 <br />
 <img {src} alt="a {name} appears" height="600px" width="300px" />
 
