@@ -1,87 +1,48 @@
 <script lang="ts">
+	export const prerender = true;
+
 	import ButtonClick from './ButtonClick.svelte';
-	import DeclaredProps from './DeclaredProps.svelte';
-	import EachBlocks from './EachBlocks.svelte';
 	import FancyButton from './FancyButton.svelte';
-	import IfBlocks from './IfBlocks.svelte';
-	import KeyedEachBlock from './KeyedEachBlock.svelte';
 	import Nested from './Nested.svelte';
-	import SpreadProps from './SpreadProps.svelte';
-	import AwaitBlock from './AwaitBlock.svelte';
-	import DOMEvents from './DOMEvents.svelte';
-	import ModifiedEvent from './ModifiedEvent.svelte';
-	import ComponentEvents from './ComponentEvents.svelte';
-	import Outer from './Outer.svelte';
-
-	import BigRedButton from './BigRedButton.svelte';
-	import FormInputs from './FormInputs.svelte';
-
-	// const audio = new Audio('./wow.mp3');
-	//
-	// function handleClick() {
-	// 	audio.play();
-	// }
+	import Nav from '../partials/Nav.svelte';
 
 	let name = 'meme';
 	let src = 'meme.jpeg';
-
-	const packageInfo = {
-		name: 'svelte',
-		speed: 'blazing',
-		version: 3,
-		website: 'https://svelte.dev'
-	};
-
-	function handleMessage(event: { detail: { text: any } }) {
-		alert(event.detail.text);
-	}
 </script>
 
-<input bind:value={name} />
+<Nav />
 
+<!-- Intro section  + reactivity -->
+
+<!-- Binding name and transforming the string using generic toUpperCase() function -->
 <h1>Hello {name.toUpperCase()}!</h1>
 
+<!-- Styling in svelte file which is scoped into this page only -->
+<!-- check <style> tag below -->
 <p>This is a paragraph!</p>
 
-<FormInputs />
-
+<!-- Nested component which has a string literal that has html tags with @html -->
+<!-- Unsafe Do not use if avoidable bad practice -->
 <Nested />
 
+<!-- At the heart of Svelte is a powerful system of reactivity for keeping the DOM 
+in sync with your application state — for example, in response to an event. -->
 <ButtonClick />
 
 <FancyButton />
 
-<SpreadProps {...packageInfo} />
-
-<DeclaredProps name="svelte" valuedName="Override" />
-
-<IfBlocks />
-
-<EachBlocks />
-
-<KeyedEachBlock />
-
 <br />
 
-<AwaitBlock />
+<!-- The {src} is a shorthand attribute which is the same as 
+declaring src={src} not a good practice if its a multi image component
+A11y: <img> element should have and always will have an alt attribute
+-->
 
-<!-- <DOMEvents /> -->
-
-<br />
-<ModifiedEvent />
-
-<ComponentEvents on:message={handleMessage} />
-<Outer on:message={handleMessage} />
-<br />
-
-<!-- <BigRedButton on:click={handleClick} /> -->
-
-<br />
 <img {src} alt="a {name} appears" height="600px" width="300px" />
 
 <style>
 	p {
-		color: #ffaa11;
+		color: #72ccfd;
 		font-family: 'Comic Sans MS', cursive;
 		font-size: 2em;
 	}

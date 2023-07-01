@@ -1,6 +1,9 @@
 <script lang="ts">
 	let count = 0;
 
+	// The $ symbol starts a reactive statement
+	// reference here https://learn.svelte.dev/tutorial/reactive-statements
+
 	// $: console.log(`the count is ${count}`);
 	$: {
 		console.log(`the count is ${count}`);
