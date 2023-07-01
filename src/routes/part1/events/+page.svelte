@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Nav from '../../partials/Nav.svelte';
+	import Nav from '$lib/header/Nav.svelte';
 	import ComponentEvents from './ComponentEvents.svelte';
 
 	import ModifiedEvent from './ModifiedEvent.svelte';

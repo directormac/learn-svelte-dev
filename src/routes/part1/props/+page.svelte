@@ -1,5 +1,5 @@
 <script>
-	import Nav from '../../partials/Nav.svelte';
+	import Nav from '$lib/header/Nav.svelte';
 	import DeclaredProps from './DeclaredProps.svelte';
 	import SpreadProps from './SpreadProps.svelte';
 

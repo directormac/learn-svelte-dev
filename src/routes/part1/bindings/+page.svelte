@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Nav from '../../partials/Nav.svelte';
+	import Nav from '$lib/header/Nav.svelte';
 	import GroupInput from './GroupInput.svelte';
 	import SelectInput from './SelectInput.svelte';
 	import TextareaInput from './TextareaInput.svelte';

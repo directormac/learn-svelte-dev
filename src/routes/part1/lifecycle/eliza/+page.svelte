@@ -1,36 +1,33 @@
-<script>
-	// @ts-nocheck
-
+<script lang="ts">
+	// @ts-ignore
 	import Eliza from 'elizabot';
 	import { beforeUpdate, afterUpdate } from 'svelte';
 
-	let div;
+	let div: HTMLElement | null;
+	let autoscroll: boolean = false;
 
 	beforeUpdate(() => {
 		if (div) {
-			const scrollableDistance = div.scrollHeight - div.offsetHeight;
+			const scrollableDistance: number = div.scrollHeight - div.offsetHeight;
 			autoscroll = div.scrollTop > scrollableDistance - 20;
 		}
-		// determine whether we should auto-scroll
-		// once the DOM is updated...
 	});
 
 	afterUpdate(() => {
-		if (autoscroll) {
-			div.scrollTo(0, div.scrollHeight);
+		if (autoscroll && div) {
+			div.scrollTo({ top: div.scrollHeight, behavior: 'smooth' });
 		}
-		// ...the DOM is now in sync with the data
 	});
 
 	const eliza = new Eliza();
-	const pause = (ms) => new Promise((fulfil) => setTimeout(fulfil, ms));
+	const pause = (ms: number): Promise<void> => new Promise((fulfil) => setTimeout(fulfil, ms));
 
 	const typing = { author: 'eliza', text: '...' };
 
-	let comments = [];
+	let comments: { author: string; text: string }[] = [];
 
-	async function handleKeydown(event) {
-		if (event.key === 'Enter' && event.target.value) {
+	async function handleKeydown(event: KeyboardEvent) {
+		if (event.key === 'Enter' && event.target instanceof HTMLInputElement && event.target.value) {
 			const comment = {
 				author: 'user',
 				text: event.target.value
@@ -54,7 +51,7 @@
 </script>
 
 <a href="/lifecycle">Go back</a>
-
+<nav />
 <div class="container">
 	<div class="phone">
 		<div class="chat" bind:this={div}>
