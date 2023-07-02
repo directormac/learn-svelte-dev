@@ -2,9 +2,10 @@
 	import { onMount } from 'svelte';
 	import { paint } from './gradient.js';
 
+	let canvas: HTMLCanvasElement;
+
 	onMount(() => {
-		const canvas = document.querySelector('canvas');
-		const context = canvas?.getContext('2d');
+		const context = canvas.getContext('2d');
 		let frame = requestAnimationFrame(function loop(t) {
 			frame = requestAnimationFrame(loop);
 			paint(context, t);
@@ -16,23 +17,20 @@
 	});
 </script>
 
-<h1>canvas below</h1>
-<canvas width={32} height={32} />
+<h1>onMount</h1>
+<canvas bind:this={canvas} width={32} height={32} />
 
 <style>
-	a {
-		z-index: 10;
-	}
 	canvas {
 		position: relative;
 		left: 0;
 		top: 0;
-		width: 100%;
-		height: 100%;
+		width: 500px;
+		height: 600px;
 		background-color: '#666666';
-		mask: url(./svelte-logo-mask.svg) 50% 50% no-repeat;
-		mask-size: 60vmin;
-		-webkit-mask: url(./svelte-logo-mask.svg) 50% 50% no-repeat;
-		-webkit-mask-size: 60vmin;
+		mask: url(./svelte-logo-mask.svg) 20% 20% no-repeat;
+		mask-size: 30vmin;
+		-webkit-mask: url(./svelte-logo-mask.svg) 20% 20% no-repeat;
+		-webkit-mask-size: 30vmin;
 	}
 </style>

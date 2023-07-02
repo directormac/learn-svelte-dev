@@ -1,5 +1,4 @@
-// @ts-nocheck
-export function paint(context, t) {
+export function paint(context: CanvasRenderingContext2D, t: number) {
 	const { width, height } = context.canvas;
 	const imageData = context.getImageData(0, 0, width, height);
 

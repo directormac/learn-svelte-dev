@@ -50,13 +50,12 @@
 	}
 </script>
 
-<a href="/lifecycle">Go back</a>
-<nav />
+<h1>Before and After Update</h1>
 <div class="container">
 	<div class="phone">
 		<div class="chat" bind:this={div}>
 			<header>
-				<h1>Eliza</h1>
+				<h1>Eliza Bot</h1>
 
 				<article class="eliza">
 					<span>{eliza.getInitial()}</span>
@@ -142,23 +141,21 @@
 
 	@media (min-width: 400px) {
 		.phone {
-			background: var(--bg-2);
 			position: relative;
 			font-size: min(2.5vh, 1rem);
 			width: auto;
 			height: 36em;
 			aspect-ratio: 9 / 16;
-			border: 0.2em solid #222;
+			border: 0.2em solid #fff;
 			border-radius: 1em;
 			box-sizing: border-box;
-			filter: drop-shadow(1px 1px 0px #222) drop-shadow(2px 2px 0px #222)
-				drop-shadow(3px 3px 0px #222);
+			filter: drop-shadow(0px 0px 0px #fff);
 		}
 
 		.phone::after {
 			position: absolute;
 			content: '';
-			background: #222;
+			background: #fff;
 			width: 60%;
 			height: 1em;
 			left: 20%;

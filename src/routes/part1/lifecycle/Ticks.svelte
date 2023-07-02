@@ -24,6 +24,7 @@
 	}
 </script>
 
+<h1>Tick</h1>
 <textarea bind:value={text} on:keydown={handleKeydown} />
 
 <style>
@@ -33,4 +34,3 @@
 		resize: none;
 	}
 </style>
-
