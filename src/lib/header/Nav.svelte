@@ -10,5 +10,11 @@
 	<a href="/part1">summary</a>
 </div>
 <div>
-	<a href="/part2"> part2</a>
+	<a href="/part2/motions">motions</a>
+	<a href="/part2/transitions">transitions</a>
+	<a href="/part2/transitions/todo">todo</a>
+	<a href="/part2"> summary</a>
 </div>
+
+<br />
+<hr />

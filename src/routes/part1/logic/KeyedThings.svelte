@@ -13,4 +13,3 @@
 </script>
 
 <p>{emoji} = {name}</p>
-
