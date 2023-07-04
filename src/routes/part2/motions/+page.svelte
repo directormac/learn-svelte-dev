@@ -1,5 +1,6 @@
 <script>
 	import Nav from '$lib/header/Nav.svelte';
+	import { base } from '$app/paths';
 	import { cubicOut } from 'svelte/easing';
 	import { spring, tweened } from 'svelte/motion';
 	import { writable } from 'svelte/store';
@@ -26,7 +27,7 @@
 <button on:click={() => progress.set(1)}> 100% </button>
 <br />
 <hr />
-<a href="/part2/motions/springs"><h1>Springs</h1></a>
+<a href="{base}/part2/motions/springs"><h1>Springs</h1></a>
 
 <style>
 	progress {
