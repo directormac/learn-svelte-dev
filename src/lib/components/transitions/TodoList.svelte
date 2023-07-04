@@ -1,22 +1,28 @@
 <script lang="ts">
+	import { flip } from 'svelte/animate';
 	import { send, receive } from './transition';
-	import type { Todo } from './todo';
-	export let store: Todo[];
+	import type { TodoStore, Todo } from './todo';
+	export let store: TodoStore;
 	export let done: boolean;
+
+	$: filteredTodos = $store.filter((todo: Todo) => todo.done === done);
 </script>
 
 <ul class="todos">
-	{#each $store.filter((todo: Todo) => todo.done === done) as todo (todo.id)}
-		<li class:done in:receive={{ key: todo.id }} out:send={{ key: todo.id }}>
+	{#each filteredTodos as todo (todo.id)}
+		<li
+			class:done
+			in:receive={{ key: todo.id }}
+			out:send={{ key: todo.id }}
+			animate:flip={{ duration: 200 }}
+		>
 			<label>
 				<input
 					type="checkbox"
 					checked={todo.done}
 					on:change={(e) => store.mark(todo, e.currentTarget.checked)}
 				/>
-
 				<span>{todo.description}</span>
-
 				<button on:click={() => store.remove(todo)} aria-label="Remove" />
 			</label>
 		</li>
@@ -36,5 +42,9 @@
 
 	button {
 		background-image: url(./remove.svg);
+	}
+
+	ul {
+		list-style-type: none;
 	}
 </style>
