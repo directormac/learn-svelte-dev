@@ -4,4 +4,4 @@
 
 <Nav />
 
-<h1>Here is my take on the new <a href="learn.svelte.dev">svelte tutorials</a></h1>
+<h1>Here is my take on the new <a href="https://learn.svelte.dev">svelte tutorials</a></h1>

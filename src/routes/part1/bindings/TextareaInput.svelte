@@ -1,6 +1,14 @@
 <script lang="ts">
 	import { marked } from 'marked';
+	import { gfmHeadingId } from 'marked-gfm-heading-id';
+	import { mangle } from 'marked-mangle';
 	let value = `Some words are *italic*, some are **bold**\n\n- lists\n- are\n- cool`;
+
+	const options = {
+		prefix: 'my-prefix-'
+	};
+	marked.use(gfmHeadingId(options));
+	marked.use(mangle());
 </script>
 
 <div class="grid">

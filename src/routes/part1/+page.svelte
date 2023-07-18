@@ -2,7 +2,8 @@
 	import Nav from '$lib/header/Nav.svelte';
 	import { assetsTotal } from '$lib/store';
 	import { afterUpdate, beforeUpdate } from 'svelte';
-	let options: string[] = ['/pikachu.png', '/dancingman.gif'];
+	import { base } from '$app/paths';
+	let options: string[] = [`${base}/pikachu.png`, `${base}/dancingman.gif`];
 	let selected: string;
 	$: assetLength = `The total assets rendered are ${$assetsTotal.length}`;
 	const addOne = () => {

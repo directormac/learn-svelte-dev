@@ -1,7 +1,8 @@
 <script lang="ts">
 	import fromLib from '$lib/assets/dancingman.gif';
 	import thisFolder from './dancingman.gif';
-	let src = '/dancingman.gif'; // from static folder
+	import { base } from '$app/paths';
+	let src = `${base}/dancingman.gif`; // from static folder
 	let name = 'Rick Astley';
 </script>
 

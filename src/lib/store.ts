@@ -1,4 +1,5 @@
 import { writable, readable, derived, type Writable } from 'svelte/store';
+import { base } from '$app/paths';
 
 //Writable store
 export const count = writable(0);
@@ -60,6 +61,6 @@ export interface Selection {
 	text: string;
 }
 export const assetsTotal: Writable<Selection[]> = writable([
-	{ id: 0, text: '/pikachu.png' },
-	{ id: 1, text: '/dancingman.gif' }
+	{ id: 0, text: `${base}/pikachu.png` },
+	{ id: 1, text: `${base}/dancingman.gif` }
 ]);

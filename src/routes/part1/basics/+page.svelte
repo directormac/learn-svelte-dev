@@ -1,8 +1,6 @@
 <script lang="ts">
 	import Nav from '$lib/header/Nav.svelte';
 
-	export const prerender = true;
-
 	import ButtonClick from './ButtonClick.svelte';
 	import DynamicAttributes from './DynamicAttributes.svelte';
 	import FancyButton from './FancyButton.svelte';

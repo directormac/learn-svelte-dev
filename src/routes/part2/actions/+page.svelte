@@ -14,50 +14,53 @@
 	<Nav />
 </div>
 <hr class="seprator" />
-<div class="container" role="region">
-	<div class="canvas-container">
-		<Canvas color={selected} {size} />
-	</div>
-
-	{#if showMenu}
-		<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
-		<div
-			class="modal-background"
-			on:click|self={() => (showMenu = false)}
-			on:keydown={(e) => {
-				if (e.key === 'Escape') showMenu = false;
-			}}
-			role="dialog"
-			aria-modal="true"
-		>
-			<div class="menu" style="position: relative;" use:trapFocus>
-				<div class="colors">
-					{#each colors as color}
-						<button
-							class="color"
-							aria-label={color}
-							aria-current={selected === color}
-							style="--color: {color}"
-							on:click={() => {
-								selected = color;
-							}}
-						/>
-					{/each}
-				</div>
-
-				<label>
-					small
-					<input type="range" bind:value={size} min="1" max="50" />
-					large
-				</label>
-			</div>
+<div class="page-container">
+	<div class="container" role="region">
+		<div class="canvas-container">
+			<Canvas color={selected} {size} />
 		</div>
-	{/if}
 
-	<div class="controls">
-		<button class="show-menu" on:click={() => (showMenu = !showMenu)}>
-			{showMenu ? 'close' : 'menu'}
-		</button>
+		{#if showMenu}
+			<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
+			<div
+				class="modal-background"
+				on:click|self={() => (showMenu = false)}
+				on:keydown={(e) => {
+					if (e.key === 'Escape') showMenu = false;
+				}}
+				role="dialog"
+				aria-modal="true"
+			>
+				<div class="menu" style="position: relative;" use:trapFocus>
+					<div class="colors">
+						{#each colors as color}
+							<button
+								class="color"
+								aria-label={color}
+								aria-current={selected === color}
+								style="--color: {color}"
+								on:click={() => {
+									selected = color;
+								}}
+							/>
+						{/each}
+					</div>
+
+					<label>
+						small
+						<input type="range" bind:value={size} min="1" max="50" />
+						large
+					</label>
+				</div>
+			</div>
+		{/if}
+
+		<div class="controls">
+			<button class="show-menu" on:click={() => (showMenu = !showMenu)}>
+				{showMenu ? 'close' : 'menu'}
+			</button>
+			<!-- <button on:click={() => canvas.clear()}>clear</button> -->
+		</div>
 	</div>
 </div>
 
@@ -149,5 +152,11 @@
 
 	.menu input {
 		flex: 1;
+	}
+	.page-container {
+		width: 500px;
+		height: 500px;
+		margin: 20px auto;
+		border: 1px solid #000;
 	}
 </style>

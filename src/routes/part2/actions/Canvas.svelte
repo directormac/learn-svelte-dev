@@ -7,7 +7,9 @@
 	let canvas: HTMLCanvasElement;
 	let context: CanvasRenderingContext2D;
 	let previous: { x: number; y: number } | null;
-
+	export function clear() {
+		context.clearRect(0, 0, canvas.width, canvas.height);
+	}
 	function getCoords(e: MouseEvent): { x: number; y: number } {
 		const { clientX, clientY } = e;
 		const { left, top } = canvas.getBoundingClientRect();

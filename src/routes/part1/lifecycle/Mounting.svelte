@@ -6,6 +6,10 @@
 
 	onMount(() => {
 		const context = canvas.getContext('2d');
+		if (!context) {
+			throw new Error('2D rendering context not supported.');
+		}
+
 		let frame = requestAnimationFrame(function loop(t) {
 			frame = requestAnimationFrame(loop);
 			paint(context, t);
